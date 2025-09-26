@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Instagram } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
+import { SiUpwork } from "react-icons/si";
 import heroProfile from "@/assets/Pro.jpg";
 import { scrollToSection, downloadFile } from "@/lib/actions";
 
@@ -24,7 +26,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
               <Button 
                 className="btn-hero px-8 py-3 text-lg group"
                 onClick={() => scrollToSection('portfolio')}
@@ -40,9 +42,26 @@ const HeroSection = () => {
                 <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
                 Download CV
               </Button>
+              {/* Social Media Icons Inline */}
+              <div className="flex gap-4 ml-0 sm:ml-6 mt-4 sm:mt-0">
+                <a href="https://github.com/Ahmedin-Jamil" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="h-6 w-6 hover:text-primary transition-colors" />
+                </a>
+                <a href="https://www.linkedin.com/in/ahmedin-jamil-alamin-omer-597080313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin className="h-6 w-6 hover:text-primary transition-colors" />
+                </a>
+                <a href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                  <SiTiktok className="h-6 w-6 hover:text-primary transition-colors" />
+                </a>
+                <a href="https://www.Instagram.com/designs_square_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <Instagram className="h-6 w-6 hover:text-primary transition-colors" />
+                </a>
+                <a href="https://www.upwork.com/freelancers/~0108c6c7fc28d5f876" target="_blank" rel="noopener noreferrer" aria-label="Upwork">
+                  <SiUpwork className="h-6 w-6 hover:text-primary transition-colors" />
+                </a>
+              </div>
             </div>
           </div>
-
           {/* Right Content - Profile Image */}
           <div className="relative animate-scale-in">
             <div className="relative">

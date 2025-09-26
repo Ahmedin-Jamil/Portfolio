@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Instagram, Heart } from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram, Heart} from "lucide-react";
+import { SiTiktok } from "react-icons/si";
+import { SiUpwork } from "react-icons/si";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, href: "#", label: "GitHub" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter className="h-5 w-5" />, href: "#", label: "Twitter" },
-    { icon: <Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
+    { icon: <Github className="h-5 w-5" />, href: "https://github.com/Ahmedin-Jamil", label: "GitHub" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/ahmedin-jamil-alamin-omer-597080313", label: "LinkedIn" },
+    { icon: <SiTiktok className="h-5 w-5" />, href: "https://www.tiktok.com/@iktanaz?lang=en", label: "TikTok" },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://www.Instagram.com/designs_square_", label: "Instagram" },
+    { icon: <SiUpwork className="h-5 w-5" />, href: "https://www.upwork.com/freelancers/~0108c6c7fc28d5f876", label: "Upwork" },
   ];
 
   const quickLinks = [
@@ -46,7 +49,7 @@ const Footer = () => {
                   className="w-10 h-10 p-0 hover:bg-primary hover:text-primary-foreground"
                   asChild
                 >
-                  <a href={link.href} aria-label={link.label}>
+                  <a href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer">
                     {link.icon}
                   </a>
                 </Button>
@@ -87,9 +90,9 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-lg font-semibold">Get In Touch</h3>
             <div className="space-y-3 text-muted-foreground">
-              <p>hello@designer.com</p>
-              <p>+1 (555) 123-4567</p>
-              <p>New York, NY, USA</p>
+              <p>jamil.al.amin1100@gmail.com</p>
+              <p>+63 9158091139</p>
+              <p>Baguio, Benguet, Philippines</p>
             </div>
             <Button className="btn-hero w-full">
               Start a Project
@@ -101,7 +104,7 @@ const Footer = () => {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm flex items-center">
-              © 2024 Portfolio. Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> by Creative Designer
+              © 2025 Portfolio. Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> by Creative Designer
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
