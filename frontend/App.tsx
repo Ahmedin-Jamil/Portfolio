@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/lib/theme-provider";
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Index from '@/pages/Index'
-import ChatBot from '@/components/ChatBot'
+// import ChatBot from '@/components/ChatBot' // Temporarily disabled
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +25,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
-              <ChatBot />
+              {/* <ChatBot /> */} {/* Temporarily disabled */}
             </div>
           </BrowserRouter>
         </TooltipProvider>
