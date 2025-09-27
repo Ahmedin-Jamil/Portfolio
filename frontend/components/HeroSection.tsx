@@ -50,7 +50,7 @@ const HeroSection = () => {
                 <a href="https://www.linkedin.com/in/ahmedin-jamil-alamin-omer-597080313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="h-6 w-6 hover:text-primary transition-colors" />
                 </a>
-                <a href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <a href="https://www.tiktok.com/@iktanaz?lang=en" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                   <SiTiktok className="h-6 w-6 hover:text-primary transition-colors" />
                 </a>
                 <a href="https://www.Instagram.com/designs_square_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
