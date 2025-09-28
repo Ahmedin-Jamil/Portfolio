@@ -19,7 +19,7 @@ const PortfolioSection = () => {
       title: "Baguio Pet Boarding Platform",
       category: "Industry Solution",
       description: "Live pet boarding management system powering daily operations. Implemented AI chatbot for 24/7 customer support, real-time booking system, and admin dashboard. Successfully processing 100+ monthly bookings with 98% customer satisfaction.",
-      image: "/images/porto.png",
+      image: "/Portfolio/images/porto.png",
       tags: ["AI Chatbot", "Full-Stack", "React", "Node.js"],
       link: "https://baguio-pet-boarding.com/"
     },
