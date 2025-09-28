@@ -87,7 +87,7 @@ const AboutSection = () => {
 
             <Button 
               className="btn-hero px-8 py-3 text-lg"
-              onClick={() => downloadFile('/documents/resume.pdf', 'resume.pdf')}
+              onClick={() => downloadFile('/Portfolio/documents/resume.pdf', 'resume.pdf')}
             >
               Download Resume
             </Button>

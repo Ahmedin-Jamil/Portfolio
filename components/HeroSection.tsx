@@ -37,7 +37,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 className="px-8 py-3 text-lg group"
-                onClick={() => downloadFile('/documents/resume.pdf', 'resume.pdf')}
+                onClick={() => downloadFile('/Portfolio/documents/resume.pdf', 'resume.pdf')}
               >
                 <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
                 Download CV
