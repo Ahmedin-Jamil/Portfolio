@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,6 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Set file permissions
+        run: chmod +x ./node_modules/.bin/vite
+
       - name: Build project
         run: npm run build
 
@@ -31,6 +36,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages # The branch gh-pages will be created and pushed to
-
-      - name: Verify gh-pages branch creation
-        run: git branch -a
