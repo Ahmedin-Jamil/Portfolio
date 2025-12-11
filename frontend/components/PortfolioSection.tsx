@@ -8,8 +8,8 @@ const PortfolioSection = () => {
     {
       id: 1,
       title: "Quantum Flow Enterprise (QFE)",
-      category: "Enterprise Solution",
-      description: "Modern ERP system delivering comprehensive business automation. Engineered with FastAPI and React, featuring real-time financial management, intelligent inventory control, and role-based security. Increased operational efficiency by 40% for enterprise clients.",
+      category: "Enterprise Solution Prototype",
+      description: "Concept for a modern ERP system designed to deliver comprehensive business automation. Engineered with FastAPI and React architecture, featuring mockups for real-time financial management, intelligent inventory control, and role-based security.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       tags: ["FastAPI", "React", "SQL", "Enterprise"],
       link: "#"
@@ -17,25 +17,25 @@ const PortfolioSection = () => {
     {
       id: 2,
       title: "Baguio Pet Boarding Platform",
-      category: "Industry Solution",
-      description: "Live pet boarding management system powering daily operations. Implemented AI chatbot for 24/7 customer support, real-time booking system, and admin dashboard. Successfully processing 100+ monthly bookings with 98% customer satisfaction.",
+      category: "Industry Solution Concept",
+      description: "Prototype for a pet boarding management system. Demonstrates features like an AI chatbot for 24/7 customer support, a real-time booking flow, and an administrative dashboard design for efficient daily operations.",
       image: "/images/porto.png",
       tags: ["AI Chatbot", "Full-Stack", "React", "Node.js"],
-      link: "https://baguio-pet-boarding.com/"
+      link: "#"
     },
     {
       id: 3,
       title: "AI Resume Analyzer Pro",
-      category: "AI Innovation",
-      description: "Intelligent resume analysis system using NLP and machine learning. Automatically extracts skills, experiences, and qualifications with 95% accuracy. Reduces HR screening time by 75% while improving candidate matching quality.",
+      category: "AI Innovation Concept",
+      description: "Conceptual design for an intelligent resume analysis system using NLP. Showcases how machine learning could extract skills and qualifications to potentially reduce HR screening time and improve candidate matching.",
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
       tags: ["Python", "NLP", "Machine Learning", "API"]
     },
     {
       id: 4,
       title: "SmartFlow Onboarding",
-      category: "Business Solution",
-      description: "Streamlined HR onboarding system with automated workflow management. Features document processing, task tracking, and integration capabilities. Reduced onboarding time from 2 weeks to 3 days for new employees.",
+      category: "Business Solution Prototype",
+      description: "Design concept for a streamlined HR onboarding system. Features workflows for document processing, task tracking, and system integration to demonstrate improved employee onboarding experiences.",
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop",
       tags: ["React", "Node.js", "Workflow", "Authentication"]
     },
@@ -53,15 +53,15 @@ const PortfolioSection = () => {
     <section id="portfolio" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <p className="text-muted-foreground text-lg">Recent Work</p>
+          <p className="text-muted-foreground text-lg">Creative Concepts</p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            My Creative Works
+            My Prototypes
             <br />
-            <span className="gradient-text">Latest Projects</span>
+            <span className="gradient-text">Concept Designs</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my design skills 
-            and problem-solving abilities across various industries and platforms.
+            Here are some of my prototype projects and concept designs that showcase my 
+            capabilities in building functional applications and solving complex problems.
           </p>
         </div>
 
