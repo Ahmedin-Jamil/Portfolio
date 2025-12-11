@@ -1,51 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Eye } from "lucide-react";
+import aiwanImg from "@/assets/aiwan.png";
 
 const PortfolioSection = () => {
   // Generate portfolio project images
   const projects = [
     {
       id: 1,
-      title: "Quantum Flow Enterprise (QFE)",
-      category: "Enterprise Solution Prototype",
-      description: "Concept for a modern ERP system designed to deliver comprehensive business automation. Engineered with FastAPI and React architecture, featuring mockups for real-time financial management, intelligent inventory control, and role-based security.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      tags: ["FastAPI", "React", "SQL", "Enterprise"],
-      link: "#"
+      title: "Baguio Pet Boarding Platform",
+      category: "Industry Solution Concept",
+      description: "Prototype for a pet boarding management system. Demonstrates features like a real-time booking flow and an administrative dashboard design for efficient daily operations.",
+      image: "/images/porto.png",
+      tags: ["Full-Stack", "React", "Node.js", "Prototype"]
     },
     {
       id: 2,
-      title: "Baguio Pet Boarding Platform",
-      category: "Industry Solution Concept",
-      description: "Prototype for a pet boarding management system. Demonstrates features like an AI chatbot for 24/7 customer support, a real-time booking flow, and an administrative dashboard design for efficient daily operations.",
-      image: "/images/porto.png",
-      tags: ["AI Chatbot", "Full-Stack", "React", "Node.js"],
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "AI Resume Analyzer Pro",
-      category: "AI Innovation Concept",
-      description: "Conceptual design for an intelligent resume analysis system using NLP. Showcases how machine learning could extract skills and qualifications to potentially reduce HR screening time and improve candidate matching.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-      tags: ["Python", "NLP", "Machine Learning", "API"]
-    },
-    {
-      id: 4,
-      title: "SmartFlow Onboarding",
-      category: "Business Solution Prototype",
-      description: "Design concept for a streamlined HR onboarding system. Features workflows for document processing, task tracking, and system integration to demonstrate improved employee onboarding experiences.",
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop",
-      tags: ["React", "Node.js", "Workflow", "Authentication"]
-    },
-    {
-      id: 6,
-      title: "Restaurant Website",
-      category: "Web Design",
-      description: "Elegant restaurant website with online reservations and menu showcase.",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
-      tags: ["Restaurant", "Booking", "Hospitality"]
+      title: "UCAIwan",
+      category: "Prototype Concept",
+      description: "Innovative platform prototype designed to bridge user needs with digital solutions. Features a user-centric interface design and conceptual workflows for seamless interaction.",
+      image: aiwanImg,
+      tags: ["Prototype", "Concept", "UI/UX"]
     }
   ];
 
@@ -65,7 +39,7 @@ const PortfolioSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
           {projects.map((project, index) => (
             <Card 
               key={project.id}
@@ -76,21 +50,8 @@ const PortfolioSection = () => {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform group-hover:scale-110"
+                  className="w-full h-64 object-cover transition-transform group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
-                  {project.link && (
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      className="text-white border-white hover:bg-white hover:text-primary"
-                      onClick={() => window.open(project.link, '_blank')}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Visit Site
-                    </Button>
-                  )}
-                </div>
               </div>
               <CardContent className="p-6 space-y-4">
                 <div className="space-y-2">
@@ -111,12 +72,6 @@ const PortfolioSection = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button className="btn-hero px-8 py-3 text-lg">
-            View All Projects
-          </Button>
         </div>
       </div>
     </section>
