@@ -55,10 +55,10 @@ const AboutSection = () => {
                   using advanced prompt engineering and system architecture principles.
                 </p>
                 <p>
-                  I contributed to UC AIwan+, a student support system for the University of the Cordilleras
-                  Guidance and Counseling Office. I developed mental health modules including emotion tracking,
-                  mindset tools, and AI-driven analytics dashboards. My work received formal commendation
-                  for outstanding contributions to system design and development.
+                  I've developed full-stack applications like the Baguio Pet Boarding Platform with an AI chatbot,
+                  and contributed to UC AIwan+, a student support system for the University of the Cordilleras.
+                  My work on UC AIwan+ included mental health modules, emotion tracking, and AI-driven analytics,
+                  receiving formal commendation for outstanding contributions.
                 </p>
               </div>
             </div>

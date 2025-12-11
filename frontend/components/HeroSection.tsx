@@ -21,8 +21,8 @@ const HeroSection = () => {
               </h1>
               <p className="text-muted-foreground text-lg max-w-lg">
                 Specialized in developing AI-powered solutions and full-stack applications.
-                Key contributor to UC AIwan+, a student support system for the University of the Cordilleras,
-                featuring mental health modules, emotion tracking, and AI-driven analytics.
+                Successfully delivered the Baguio Pet Boarding Platform and contributed to UC AIwan+,
+                a student support system featuring mental health modules and AI-driven analytics.
               </p>
             </div>
 
