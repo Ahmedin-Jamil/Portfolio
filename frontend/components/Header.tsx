@@ -35,13 +35,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Contact Button */}
-          <div className="hidden md:block">
-            <Button className="btn-hero px-6 py-2">
-              Get In Touch
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
@@ -65,9 +58,6 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="btn-hero mt-4 w-full">
-                Get In Touch
-              </Button>
             </div>
           </nav>
         )}

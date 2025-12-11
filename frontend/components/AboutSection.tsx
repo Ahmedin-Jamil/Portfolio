@@ -50,16 +50,15 @@ const AboutSection = () => {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   As an AI-Powered Solutions Architect, I specialize in creating intelligent
-                  business solutions through innovative use of AI technologies. My expertise lies
-                  in transforming complex business requirements into efficient, scalable systems
+                  solutions through innovative use of AI technologies. My expertise lies
+                  in transforming complex requirements into efficient, scalable systems
                   using advanced prompt engineering and system architecture principles.
                 </p>
                 <p>
-                  I've successfully developed full-stack applications like a comprehensive pet
-                  booking service with an AI chatbot, demonstrating my ability to integrate AI
-                  technologies with practical business solutions. My approach combines technical
-                  expertise with strong business analysis skills to deliver results that drive
-                  real business value.
+                  I contributed to UC AIwan+, a student support system for the University of the Cordilleras
+                  Guidance and Counseling Office. I developed mental health modules including emotion tracking,
+                  mindset tools, and AI-driven analytics dashboards. My work received formal commendation
+                  for outstanding contributions to system design and development.
                 </p>
               </div>
             </div>
