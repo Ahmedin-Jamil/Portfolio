@@ -15,11 +15,11 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      title: "UCAIwan",
-      category: "Prototype Concept",
-      description: "Innovative platform prototype designed to bridge user needs with digital solutions. Features a user-centric interface design and conceptual workflows for seamless interaction.",
+      title: "UC AIwan+",
+      category: "Student Support System Prototype",
+      description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements. Received formal commendation for exemplary performance in system design and development.",
       image: aiwanImg,
-      tags: ["Prototype", "Concept", "UI/UX"]
+      tags: ["Student Services", "System Design", "Data Analytics", "Web Dev"]
     }
   ];
 
