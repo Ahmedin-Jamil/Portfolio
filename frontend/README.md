@@ -1,22 +1,18 @@
-# Welcome to your Lovable project
+# Portfolio Project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/0bbd8d7a-8fb5-4db0-9141-c15449782b2c
+
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0bbd8d7a-8fb5-4db0-9141-c15449782b2c) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -60,14 +56,23 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/0bbd8d7a-8fb5-4db0-9141-c15449782b2c) and click on Share -> Publish.
+You can deploy this project using any modern static hosting provider, such as Vercel, Netlify, or GitHub Pages. For example, to deploy on Vercel:
 
-## Can I connect a custom domain to my Lovable project?
+1. Push your code to a GitHub repository.
+2. Go to [Vercel](https://vercel.com/) and import your repository.
+3. Follow the prompts to deploy. Vercel will detect your Vite/React setup automatically.
 
-Yes, you can!
+Or, for Netlify:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Push your code to a GitHub repository.
+2. Go to [Netlify](https://netlify.com/) and connect your repository.
+3. Set the build command to `npm run build` and the publish directory to `dist`.
+4. Deploy your site.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Can I connect a custom domain?
+
+Yes! Most hosting providers (Vercel, Netlify, GitHub Pages) allow you to connect a custom domain. Follow their documentation to set up your domain after deployment.
