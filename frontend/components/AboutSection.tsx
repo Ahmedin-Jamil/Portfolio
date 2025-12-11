@@ -57,8 +57,8 @@ const AboutSection = () => {
                 <p>
                   I've developed full-stack applications like the Baguio Pet Boarding Platform with an AI chatbot,
                   and contributed to UC AIwan+, a student support system for the University of the Cordilleras.
-                  My work on UC AIwan+ included mental health modules, emotion tracking, and AI-driven analytics,
-                  receiving formal commendation for outstanding contributions.
+                  My work included mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified
+                  career map game to help students discover their skills and build their career paths.
                 </p>
               </div>
             </div>

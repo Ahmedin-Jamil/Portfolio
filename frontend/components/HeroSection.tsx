@@ -22,7 +22,7 @@ const HeroSection = () => {
               <p className="text-muted-foreground text-lg max-w-lg">
                 Specialized in developing AI-powered solutions and full-stack applications.
                 Successfully delivered the Baguio Pet Boarding Platform and contributed to UC AIwan+,
-                a student support system featuring mental health modules and AI-driven analytics.
+                featuring mental health modules, AI-driven analytics, and a 3D gamified career map.
               </p>
             </div>
 
