@@ -17,7 +17,7 @@ const PortfolioSection = () => {
       id: 2,
       title: "UC AIwan+",
       category: "Student Support System Prototype",
-      description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements. Received formal commendation for exemplary performance and outstanding contributions to system design and development, resulting in increased operational efficiency.",
+      description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements across student service operations. Received formal commendation for exemplary performance and outstanding contributions to system design and development, resulting in increased operational efficiency.",
       image: aiwanImg,
       tags: ["Student Services", "System Design", "Data Analytics", "Web Dev"]
     }
