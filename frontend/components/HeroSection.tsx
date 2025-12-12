@@ -74,7 +74,7 @@ const HeroSection = () => {
                 <img
                   src={heroProfile}
                   alt="Full-Stack Developer"
-                  className="w-full h-full object-cover object-[right_60%] "
+                  className="w-full h-full object-cover object-[right_60%] animate-scale-in"
                 />
               </div>
 
