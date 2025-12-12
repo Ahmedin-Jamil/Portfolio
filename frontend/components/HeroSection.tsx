@@ -4,13 +4,12 @@ import { SiTiktok } from "react-icons/si";
 import { SiUpwork } from "react-icons/si";
 import heroProfile from "@/assets/Pro.jpg";
 import { scrollToSection, downloadFile } from "@/lib/actions";
-import MovingBubbles from "@/components/MovingBubbles";
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden">
-      <MovingBubbles />
       <div className="container mx-auto relative z-10">
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up">

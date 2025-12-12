@@ -143,7 +143,7 @@ const MovingBubbles: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 overflow-hidden pointer-events-none"
+      className="fixed inset-0 overflow-hidden pointer-events-none"
       style={{
         background: 'transparent',
         zIndex: 0,
