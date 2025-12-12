@@ -5,10 +5,30 @@ import { downloadFile } from "@/lib/actions";
 
 const AboutSection = () => {
   const skills = [
-    { name: "AI Prompt Engineering", level: 95 },
-    { name: "System Architecture", level: 90 },
-    { name: "Full-Stack Development", level: 85 },
-    { name: "Business Analysis", level: 88 },
+    {
+      name: "AI Prompt Engineering",
+      level: 95,
+      description:
+        "Designing clear, structured prompts and workflows that make AI tools more reliable and useful.",
+    },
+    {
+      name: "System Architecture",
+      level: 90,
+      description:
+        "Planning how front-end, back-end, databases, and AI services fit together into scalable systems.",
+    },
+    {
+      name: "Full-Stack Development",
+      level: 85,
+      description:
+        "Building user interfaces with React and connecting them to well-structured APIs and data layers.",
+    },
+    {
+      name: "Business Analysis",
+      level: 88,
+      description:
+        "Translating business needs into clear requirements, user journeys, and measurable outcomes.",
+    },
   ];
 
   const achievements = [
@@ -79,6 +99,9 @@ const AboutSection = () => {
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
+                    <p className="text-sm text-muted-foreground">
+                      {skill.description}
+                    </p>
                   </div>
                 ))}
               </div>
