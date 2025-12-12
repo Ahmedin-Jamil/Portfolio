@@ -1,6 +1,20 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import aiwanImg from "@/assets/aiwan.png";
+import ProjectGallery from "@/components/ProjectGallery";
+import pet1 from "@/assets/pet.png";
+import pet2 from "@/assets/pet2.png";
+import pet3 from "@/assets/pet3.png";
+import pet4 from "@/assets/pet4.png";
+import pet5 from "@/assets/pet5.png";
+import pet6 from "@/assets/pet6.png";
+import aiwan1 from "@/assets/aiwan.png";
+import aiwan2 from "@/assets/aiwan2.png";
+import aiwan3 from "@/assets/aiwan3.png";
+import aiwan4 from "@/assets/aiwan4.png";
+import aiwan5 from "@/assets/aiwan5.png";
+import aiwan6 from "@/assets/aiwan6.png";
+import aiwan7 from "@/assets/aiwan7.png";
+import aiwan8 from "@/assets/aiwan8.png";
+import aiwan9 from "@/assets/aiwan9.png";
 
 const PortfolioSection = () => {
   // Generate portfolio project images
@@ -10,7 +24,7 @@ const PortfolioSection = () => {
       title: "Baguio Pet Boarding Platform",
       category: "Industry Solution Concept",
       description: "Prototype for a pet boarding management system. Demonstrates features like a real-time booking flow and an administrative dashboard design for efficient daily operations.",
-      image: "/images/porto.png",
+      images: [pet1, pet2, pet3, pet4, pet5, pet6],
       tags: ["Full-Stack", "React", "Node.js", "Prototype"]
     },
     {
@@ -18,7 +32,7 @@ const PortfolioSection = () => {
       title: "UC AIwan+",
       category: "Student Support System Prototype",
       description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements across student service operations. Received formal commendation for exemplary performance and outstanding contributions to system design and development, resulting in increased operational efficiency.",
-      image: aiwanImg,
+      images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
       tags: ["Student Services", "System Design", "Data Analytics", "Web Dev"]
     }
   ];
@@ -47,11 +61,7 @@ const PortfolioSection = () => {
               style={{animationDelay: `${index * 0.1}s`}}
             >
               <div className="relative group">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-64 object-cover transition-transform group-hover:scale-105"
-                />
+                <ProjectGallery images={project.images} alt={project.title} heightClassName="h-64" />
               </div>
               <CardContent className="p-6 space-y-4">
                 <div className="space-y-2">
@@ -59,6 +69,7 @@ const PortfolioSection = () => {
                   <h3 className="text-xl font-semibold">{project.title}</h3>
                   <p className="text-muted-foreground">{project.description}</p>
                 </div>
+
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <span 

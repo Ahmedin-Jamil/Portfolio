@@ -18,10 +18,12 @@ const App = () => {
           <Sonner />
           <div className="relative min-h-screen">
             <MovingBubbles />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <div className="relative z-10">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
           </div>
         </BrowserRouter>
       </TooltipProvider>
