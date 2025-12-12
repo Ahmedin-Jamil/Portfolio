@@ -21,19 +21,19 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      title: "Baguio Pet Boarding Platform",
+      title: "Baguio Pet Boarding",
       category: "Booking Management System",
       description: "Designed a full-stack concept for a pet boarding management system, focusing on a smooth client booking journey and a clear admin workflow. Includes service selection and scheduling, booking/request tracking, and dashboard-style views to support daily operations and reduce manual coordination.",
       images: [pet1, pet2, pet3, pet4, pet5, pet6],
-      tags: ["Full-Stack", "React", "Node.js", "Prototype"]
+      tags: ["Admin Dashboard Management", "AI Chatbot", "Real-time slot availability", "Full Stack"]
     },
     {
       id: 2,
       title: "UC AIwan+",
-      category: "Student Support System",
+      category: "University Student Support Platform",
       description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements across student service operations. Received formal commendation for exemplary performance and outstanding contributions to system design and development, resulting in increased operational efficiency.",
       images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
-      tags: ["Student Services", "System Design", "Data Analytics", "Web Dev"]
+      tags: ["Student Help Desk", "3D Gamification", "AI Cognative Behavioral Therapy ", "AI Analytics for emotion detection", "Full Stack", "Supabase(AWS)"]
     }
   ];
 
