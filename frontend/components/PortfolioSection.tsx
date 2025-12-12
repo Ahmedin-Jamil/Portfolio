@@ -31,7 +31,7 @@ const PortfolioSection = () => {
       id: 2,
       title: "UC AIwan+",
       category: "University Student Support Platform",
-      description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements across student service operations. Received formal commendation for exemplary performance and outstanding contributions to system design and development, resulting in increased operational efficiency.",
+      description: "Contributed to UC AIwan+ by developing key web interfaces and internal tools for the SAS project, including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map feature. Supported workflow improvements across student service operations. Received formal commendation for outstanding contributions to system design and development.",
       images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
       tags: ["Student Help Desk", "3D Gamification", "AI Cognative Behavioral Therapy ", "AI Analytics for emotion detection", "Full Stack", "Supabase(AWS)"]
     }
