@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { handleContact } from '@/lib/actions';
+import ScrollReveal from "@/components/ScrollReveal";
 
 const ContactSection = () => {
 
@@ -27,7 +28,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center space-y-4 mb-16">
+        <ScrollReveal animation="fade-up" className="text-center space-y-4 mb-16">
           <p className="text-muted-foreground text-lg">Get In Touch</p>
           <h2 className="text-4xl md:text-5xl font-bold">
             Let's Discuss Your
@@ -38,11 +39,11 @@ const ContactSection = () => {
             Ready to bring your vision to life? Let's collaborate and create something amazing together. 
             You can reach me directly through the contact details below.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-1 gap-12">
           {/* Contact Information */}
-          <div className="space-y-8 max-w-xl mx-auto animate-slide-in-right">
+          <ScrollReveal animation="fade-up" delay={200} className="space-y-8 max-w-xl mx-auto">
 
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold">Contact Information</h3>
@@ -87,7 +88,7 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -14,14 +14,14 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-4">
-              <p className="text-muted-foreground text-lg">AI Solutions Architect</p>
+              <p className="text-muted-foreground text-lg">Full-Stack Developer & SAP Enthusiast</p>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Creating <span className="gradient-text">Intelligent Solutions</span>
+                Building <span className="gradient-text">Scalable Systems</span>
                 <br />
-                <span className="gradient-text">for Real Business Impact</span>
+                <span className="gradient-text">& Enterprise Solutions</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-lg">
-                Specialized in developing AI-powered solutions and full-stack applications.
+                Specialized in developing enterprise systems and full-stack applications.
                 Successfully delivered the Baguio Pet Boarding Platform and contributed to UC AIwan+,
                 featuring mental health modules, AI-driven analytics, and a 3D gamified career map.
               </p>
@@ -64,31 +64,28 @@ const HeroSection = () => {
             </div>
           </div>
           {/* Right Content - Profile Image */}
-          <div className="relative animate-scale-in">
+          <div className="relative animate-scale-in flex justify-center">
             <div className="relative">
-              {/* Background decoration */}
-              <div className="absolute -inset-4 bg-gradient-hero rounded-2xl blur-3xl opacity-20 animate-float"></div>
+              {/* Circular gradient ring behind image */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary p-1 blur-sm opacity-60"></div>
               
-              {/* Main image container */}
-              <div className="relative bg-gradient-card rounded-2xl p-2 shadow-xl">
+              {/* Main circular image container */}
+              <div className="relative w-80 h-80 md:w-66 md:h-66 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
                 <img
                   src={heroProfile}
-                  alt="Creative Designer"
-                  className="h-[500px] w-[600px] object-contain rounded-xl"
+                  alt="Full-Stack Developer"
+                  className="w-full h-full object-cover object-[right_60%] "
                 />
               </div>
 
-              {/* Floating elements */}
-              <div className="absolute -top-6 -right-6 bg-secondary/90 backdrop-blur rounded-xl p-3 shadow-lg animate-float">
-                <div className="flex items-center space-x-2">
-                  <span className="font-medium text-sm">AI Solutions Expert</span>
-                </div>
+              {/* Static badge - top right */}
+              <div className="absolute top-4 -right-4 bg-secondary text-secondary-foreground backdrop-blur rounded-full px-4 py-2 shadow-lg border border-white/20">
+                <span className="font-medium text-sm">SAP Enthusiast</span>
               </div>
               
-              <div className="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur rounded-xl p-3 shadow-lg animate-float" style={{animationDelay: '1s'}}>
-                <div className="flex items-center space-x-2">
-                  <span className="font-medium text-sm">Full-Stack Developer</span>
-                </div>
+              {/* Static badge - bottom left */}
+              <div className="absolute bottom-4 -left-4 bg-card backdrop-blur rounded-full px-4 py-2 shadow-lg border border-border">
+                <span className="font-medium text-sm">Full-Stack Developer</span>
               </div>
             </div>
           </div>

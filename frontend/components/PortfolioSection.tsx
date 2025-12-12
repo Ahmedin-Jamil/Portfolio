@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
+import ScrollReveal from "@/components/ScrollReveal";
 import pet1 from "@/assets/pet.png";
 import pet2 from "@/assets/pet2.png";
 import pet3 from "@/assets/pet3.png";
@@ -40,7 +41,7 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center space-y-4 mb-16">
+        <ScrollReveal animation="fade-up" className="text-center space-y-4 mb-16">
           <p className="text-muted-foreground text-lg">Creative Concepts</p>
           <h2 className="text-4xl md:text-5xl font-bold">
             My Prototypes
@@ -51,7 +52,7 @@ const PortfolioSection = () => {
             Here are some of my prototype projects and concept designs that showcase my 
             capabilities in building functional applications and solving complex problems.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
           {projects.map((project, index) => (

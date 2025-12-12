@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, Zap, Users, Target } from "lucide-react";
 import { downloadFile } from "@/lib/actions";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const AboutSection = () => {
   const skills = [
@@ -59,7 +60,7 @@ const AboutSection = () => {
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-8 animate-slide-in-left">
+          <ScrollReveal animation="fade-right" className="space-y-8">
             <div className="space-y-4">
               <p className="text-muted-foreground text-lg">About Me</p>
               <h2 className="text-4xl md:text-5xl font-bold">
@@ -113,10 +114,10 @@ const AboutSection = () => {
             >
               Download Resume
             </Button>
-          </div>
+          </ScrollReveal>
 
           {/* Right Content */}
-          <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
+          <ScrollReveal animation="fade-left" delay={200} className="grid grid-cols-2 gap-6">
             {achievements.map((achievement, index) => (
               <Card 
                 key={achievement.title}
@@ -134,7 +135,7 @@ const AboutSection = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
