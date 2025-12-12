@@ -7,6 +7,7 @@ interface ScrollRevealProps {
   animation?: 'fade-up' | 'fade-down' | 'fade-left' | 'fade-right' | 'scale' | 'blur';
   delay?: number;
   duration?: number;
+  triggerOnce?: boolean;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -15,8 +16,9 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   animation = 'fade-up',
   delay = 0,
   duration = 600,
+  triggerOnce = false,
 }) => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1, triggerOnce });
 
   const getAnimationStyles = (): React.CSSProperties => {
     const baseStyles: React.CSSProperties = {
