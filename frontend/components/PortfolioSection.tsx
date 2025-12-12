@@ -30,7 +30,7 @@ const PortfolioSection = () => {
     {
       id: 2,
       title: "UC AIwan+",
-      category: "Student Support System Prototype",
+      category: "Student Support System",
       description: "Developed and enhanced student service system components, including web interfaces and internal tools for the SAS project. Contributed to data analytics workflows and supported process improvements across student service operations. Received formal commendation for exemplary performance and outstanding contributions to system design and development, resulting in increased operational efficiency.",
       images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
       tags: ["Student Services", "System Design", "Data Analytics", "Web Dev"]
