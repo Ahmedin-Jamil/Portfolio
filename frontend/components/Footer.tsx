@@ -56,61 +56,6 @@ const Footer = () => {
               ))}
             </div>
           </div>
-
-          {/* Quick Links */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a 
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold">Services</h3>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-muted-foreground">{service}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold">Get In Touch</h3>
-            <div className="space-y-3 text-muted-foreground">
-              <p>jamil.al.amin1100@gmail.com</p>
-              <p>+63 9158091139</p>
-              <p>Baguio, Benguet, Philippines</p>
-            </div>
-            <Button className="btn-hero w-full">
-              Start a Project
-            </Button>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-border pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-muted-foreground text-sm flex items-center">
-              © 2025 Portfolio. Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> by Creative Designer
-            </p>
-            <div className="flex space-x-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-            </div>
-          </div>
         </div>
       </div>
     </footer>
