@@ -56,33 +56,36 @@ const PortfolioSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
           {projects.map((project, index) => (
-            <Card 
+            <ScrollReveal
               key={project.id}
-              className="card-hover overflow-hidden bg-gradient-card animate-fade-in-up"
-              style={{animationDelay: `${index * 0.1}s`}}
+              animation="fade-up"
+              delay={index * 150}
+              className="h-full"
             >
-              <div className="relative group">
-                <ProjectGallery images={project.images} alt={project.title} heightClassName="h-64" />
-              </div>
-              <CardContent className="p-6 space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">{project.category}</p>
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <p className="text-muted-foreground">{project.description}</p>
+              <Card className="card-hover overflow-hidden bg-gradient-card h-full">
+                <div className="relative group">
+                  <ProjectGallery images={project.images} alt={project.title} heightClassName="h-64" />
                 </div>
+                <CardContent className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-sm text-muted-foreground">{project.category}</p>
+                    <h3 className="text-xl font-semibold">{project.title}</h3>
+                    <p className="text-muted-foreground">{project.description}</p>
+                  </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map(tag => (
-                    <span 
-                      key={tag}
-                      className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span 
+                        key={tag}
+                        className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
       </div>
