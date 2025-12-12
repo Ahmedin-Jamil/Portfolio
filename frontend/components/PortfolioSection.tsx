@@ -23,7 +23,7 @@ const PortfolioSection = () => {
       id: 1,
       title: "Baguio Pet Boarding Platform",
       category: "Industry Solution Concept",
-      description: "Prototype for a pet boarding management system. Demonstrates features like a real-time booking flow and an administrative dashboard design for efficient daily operations.",
+      description: "Designed a full-stack concept for a pet boarding management system, focusing on a smooth client booking journey and a clear admin workflow. Includes service selection and scheduling, booking/request tracking, and dashboard-style views to support daily operations and reduce manual coordination.",
       images: [pet1, pet2, pet3, pet4, pet5, pet6],
       tags: ["Full-Stack", "React", "Node.js", "Prototype"]
     },
