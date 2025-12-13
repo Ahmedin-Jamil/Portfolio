@@ -4,7 +4,7 @@ import { Award, Zap, Users, Target } from "lucide-react";
 import { downloadFile } from "@/lib/actions";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const AboutSection = () => {
+const AboutSection = () => { 
   const skills = [
     {
       name: "AI Prompt Engineering",
