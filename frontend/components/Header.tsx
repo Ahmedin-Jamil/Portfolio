@@ -1,9 +1,10 @@
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
+  const headerRef = useRef<HTMLElement | null>(null);
 
   const navItems = [
     { label: "Home", href: "#home" },
@@ -14,51 +15,70 @@ const Header = () => {
   ];
 
   useEffect(() => {
-    const ids = navItems
-      .map((i) => i.href.replace("#", ""))
-      .filter(Boolean);
+    const ids = navItems.map((i) => i.href.replace("#", "")).filter(Boolean);
 
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-
-    if (elements.length === 0) return;
+    const getSections = () =>
+      ids
+        .map((id) => document.getElementById(id))
+        .filter((el): el is HTMLElement => Boolean(el));
 
     const setFromHash = () => {
       const hash = window.location.hash?.replace("#", "");
       if (hash && ids.includes(hash)) setActiveSection(hash);
     };
 
+    let rafId: number | null = null;
+    const updateActiveFromScroll = () => {
+      const sections = getSections();
+      if (sections.length === 0) return;
+
+      const headerOffset = (headerRef.current?.offsetHeight ?? 0) + 16;
+      const probeY = window.scrollY + headerOffset;
+
+      let current = sections[0].id;
+
+      for (const el of sections) {
+        const top = el.offsetTop;
+        const bottom = top + el.offsetHeight;
+        if (probeY >= top && probeY < bottom) {
+          current = el.id;
+          break;
+        }
+      }
+
+      setActiveSection((prev) => (prev === current ? prev : current));
+    };
+
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = null;
+        updateActiveFromScroll();
+      });
+    };
+
     setFromHash();
+    updateActiveFromScroll();
+
     window.addEventListener("hashchange", setFromHash);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
-
-        const top = visible[0];
-        if (top?.target?.id) setActiveSection(top.target.id);
-      },
-      { root: null, threshold: [0.15, 0.25, 0.35], rootMargin: "-35% 0px -55% 0px" }
-    );
-
-    elements.forEach((el) => observer.observe(el));
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
 
     return () => {
       window.removeEventListener("hashchange", setFromHash);
-      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <a href="#home" className="text-lg font-bold tracking-tight">
-            <span className="gradient-text">Portfolio</span>
+            <span className="gradient-text">Jamil Alamin</span>
           </a>
 
           {/* Desktop Navigation */}

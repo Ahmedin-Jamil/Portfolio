@@ -11,10 +11,26 @@ interface Bubble {
   opacity: number;
 }
 
+type BubbleSim = Bubble & { xPx: number; yPx: number; vxPx: number; vyPx: number };
+
 const MovingBubbles: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const bubblesRef = useRef<Bubble[]>([]);
+  const pointerRef = useRef<{ x: number; y: number; active: boolean }>({
+    x: 0,
+    y: 0,
+    active: false,
+  });
+  const tapRef = useRef<{
+    x: number;
+    y: number;
+    moved: boolean;
+    ignore: boolean;
+  } | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number>(0);
+  const lastRenderRef = useRef<number>(0);
   const [selectedBubbleId, setSelectedBubbleId] = useState<string | null>(null);
   const selectedBubbleRef = useRef<string | null>(null);
   const beatTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -61,27 +77,109 @@ const MovingBubbles: React.FC = () => {
 
     setBubbles([...bubblesRef.current]);
 
-    let elapsedTime = 0;
-    const decayInterval = setInterval(() => {
-      elapsedTime += 100;
-      const progress = Math.min(elapsedTime / 3000, 1);
-      const decayFactor = 0.85 + progress * 0.15;
+    beatTimeoutRef.current = setTimeout(() => {
+      setSelectedBubbleId(null);
+      selectedBubbleRef.current = null;
+    }, 1200);
+  };
 
-      bubblesRef.current = bubblesRef.current.map((bubble) => ({
-        ...bubble,
-        vx: bubble.vx * decayFactor,
-        vy: bubble.vy * decayFactor,
-      }));
+  useEffect(() => {
+    const onMove = (e: PointerEvent) => {
+      pointerRef.current = { x: e.clientX, y: e.clientY, active: true };
+
+      const t = tapRef.current;
+      if (t && !t.moved) {
+        const dx = e.clientX - t.x;
+        const dy = e.clientY - t.y;
+        if (dx * dx + dy * dy > 12 * 12) {
+          t.moved = true;
+        }
+      }
+    };
+
+    const shouldIgnorePointerDown = (target: EventTarget | null) => {
+      if (!(target instanceof HTMLElement)) return false;
+      const interactive = target.closest('a,button,input,textarea,select,label,[role="button"],[role="link"],summary');
+      return Boolean(interactive);
+    };
+
+    const onDown = (e: PointerEvent) => {
+      onMove(e);
+      tapRef.current = {
+        x: e.clientX,
+        y: e.clientY,
+        moved: false,
+        ignore: shouldIgnorePointerDown(e.target),
+      };
+    };
+
+    const burst = (x: number, y: number) => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const width = rect.width || window.innerWidth;
+      const height = rect.height || window.innerHeight;
+
+      const radiusPx = 170;
+      const strength = 2.6;
+
+      bubblesRef.current = bubblesRef.current.map((b) => {
+        const bx = (b.x / 100) * width;
+        const by = (b.y / 100) * height;
+        const dx = bx - x;
+        const dy = by - y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist > 0.001 && dist < radiusPx) {
+          const t = 1 - dist / radiusPx;
+          const force = t * t * strength;
+          return {
+            ...b,
+            vx: b.vx + ((dx / dist) * force * 100) / width,
+            vy: b.vy + ((dy / dist) * force * 100) / height,
+          };
+        }
+
+        return b;
+      });
 
       setBubbles([...bubblesRef.current]);
+    };
 
-      if (progress >= 1) {
-        clearInterval(decayInterval);
-        setSelectedBubbleId(null);
-        selectedBubbleRef.current = null;
+    const onLeave = () => {
+      pointerRef.current.active = false;
+      tapRef.current = null;
+    };
+
+    const onUp = (e: PointerEvent) => {
+      const t = tapRef.current;
+      tapRef.current = null;
+
+      if (t && !t.ignore && !t.moved) {
+        burst(e.clientX, e.clientY);
       }
-    }, 100);
-  };
+
+      onLeave();
+    };
+
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('pointerdown', onDown, { passive: true });
+    window.addEventListener('pointerup', onUp, { passive: true });
+    window.addEventListener('blur', onLeave);
+
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerdown', onDown);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('blur', onLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (beatTimeoutRef.current) clearTimeout(beatTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const colors = [
@@ -108,36 +206,138 @@ const MovingBubbles: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const animationInterval = setInterval(() => {
-      bubblesRef.current = bubblesRef.current.map((bubble) => {
-        let newX = bubble.x + bubble.vx;
-        let newY = bubble.y + bubble.vy;
-        let newVx = bubble.vx;
-        let newVy = bubble.vy;
+    const step = (time: number) => {
+      if (!containerRef.current || bubblesRef.current.length === 0) {
+        rafRef.current = requestAnimationFrame(step);
+        return;
+      }
 
-        if (newX - bubble.size / 2 < 0 || newX + bubble.size / 2 > 100) {
-          newVx = -bubble.vx;
-          newX = Math.max(bubble.size / 2, Math.min(100 - bubble.size / 2, newX));
+      const rect = containerRef.current.getBoundingClientRect();
+      const width = rect.width || window.innerWidth;
+      const height = rect.height || window.innerHeight;
+
+      const prev = lastTimeRef.current || time;
+      const dt = Math.min((time - prev) / 16.67, 2);
+      lastTimeRef.current = time;
+
+      const friction = 0.985;
+      const bounce = 0.98;
+      const maxSpeed = 4.5;
+
+      const pointer = pointerRef.current;
+      const influenceRadius = 140;
+      const repelStrength = 0.9;
+
+      const px: BubbleSim[] = bubblesRef.current.map((b) => {
+        const xPx = (b.x / 100) * width;
+        const yPx = (b.y / 100) * height;
+        const vxPx = (b.vx / 100) * width;
+        const vyPx = (b.vy / 100) * height;
+        return { ...b, xPx, yPx, vxPx, vyPx };
+      });
+
+      for (const b of px) {
+        b.vxPx *= Math.pow(friction, dt);
+        b.vyPx *= Math.pow(friction, dt);
+
+        if (pointer.active) {
+          const dx = b.xPx - pointer.x;
+          const dy = b.yPx - pointer.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist > 0.001 && dist < influenceRadius) {
+            const t = 1 - dist / influenceRadius;
+            const force = t * t * repelStrength;
+            b.vxPx += (dx / dist) * force * dt;
+            b.vyPx += (dy / dist) * force * dt;
+          }
         }
 
-        if (newY - bubble.size / 2 < 0 || newY + bubble.size / 2 > 100) {
-          newVy = -bubble.vy;
-          newY = Math.max(bubble.size / 2, Math.min(100 - bubble.size / 2, newY));
+        const sp = Math.sqrt(b.vxPx * b.vxPx + b.vyPx * b.vyPx);
+        if (sp > maxSpeed) {
+          b.vxPx = (b.vxPx / sp) * maxSpeed;
+          b.vyPx = (b.vyPx / sp) * maxSpeed;
         }
 
+        b.xPx += b.vxPx * dt;
+        b.yPx += b.vyPx * dt;
+
+        const r = b.size / 2;
+        if (b.xPx - r < 0) {
+          b.xPx = r;
+          b.vxPx = Math.abs(b.vxPx) * bounce;
+        } else if (b.xPx + r > width) {
+          b.xPx = width - r;
+          b.vxPx = -Math.abs(b.vxPx) * bounce;
+        }
+
+        if (b.yPx - r < 0) {
+          b.yPx = r;
+          b.vyPx = Math.abs(b.vyPx) * bounce;
+        } else if (b.yPx + r > height) {
+          b.yPx = height - r;
+          b.vyPx = -Math.abs(b.vyPx) * bounce;
+        }
+      }
+
+      for (let i = 0; i < px.length; i++) {
+        for (let j = i + 1; j < px.length; j++) {
+          const a = px[i];
+          const b = px[j];
+          const dx = b.xPx - a.xPx;
+          const dy = b.yPx - a.yPx;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const minDist = a.size / 2 + b.size / 2;
+
+          if (dist > 0.001 && dist < minDist) {
+            const nx = dx / dist;
+            const ny = dy / dist;
+            const overlap = (minDist - dist) * 0.5;
+
+            a.xPx -= nx * overlap;
+            a.yPx -= ny * overlap;
+            b.xPx += nx * overlap;
+            b.yPx += ny * overlap;
+
+            const relVx = a.vxPx - b.vxPx;
+            const relVy = a.vyPx - b.vyPx;
+            const rel = relVx * nx + relVy * ny;
+
+            if (rel > 0) continue;
+
+            a.vxPx -= rel * nx;
+            a.vyPx -= rel * ny;
+            b.vxPx += rel * nx;
+            b.vyPx += rel * ny;
+          }
+        }
+      }
+
+      bubblesRef.current = px.map((b) => {
+        const { xPx, yPx, vxPx, vyPx, ...rest } = b;
         return {
-          ...bubble,
-          x: newX,
-          y: newY,
-          vx: newVx,
-          vy: newVy,
+          ...rest,
+          x: (xPx / width) * 100,
+          y: (yPx / height) * 100,
+          vx: (vxPx / width) * 100,
+          vy: (vyPx / height) * 100,
         };
       });
 
-      setBubbles([...bubblesRef.current]);
-    }, 50);
+      if (!lastRenderRef.current || time - lastRenderRef.current > 33) {
+        lastRenderRef.current = time;
+        setBubbles([...bubblesRef.current]);
+      }
 
-    return () => clearInterval(animationInterval);
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    };
   }, []);
 
   return (
@@ -176,6 +376,7 @@ const MovingBubbles: React.FC = () => {
                   0 ${bubble.size / 3}px ${bubble.size / 2}px rgba(0, 0, 0, 0.15)`,
             filter: `drop-shadow(0 ${bubble.size / 5}px ${bubble.size / 2.5}px rgba(0, 0, 0, 0.2))`,
             pointerEvents: 'auto',
+            touchAction: 'pan-y',
           }}
           onClick={(e) => handleBubbleClick(e, bubble.id)}
         >
