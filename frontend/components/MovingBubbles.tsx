@@ -17,6 +17,16 @@ const MovingBubbles: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const bubblesRef = useRef<Bubble[]>([]);
+  const wavesRef = useRef<
+    Array<{
+      x: number;
+      y: number;
+      start: number;
+      duration: number;
+      maxRadius: number;
+      strength: number;
+    }>
+  >([]);
   const pointerRef = useRef<{ x: number; y: number; active: boolean }>({
     x: 0,
     y: 0,
@@ -113,37 +123,18 @@ const MovingBubbles: React.FC = () => {
       };
     };
 
-    const burst = (x: number, y: number) => {
-      const el = containerRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const width = rect.width || window.innerWidth;
-      const height = rect.height || window.innerHeight;
-
-      const radiusPx = 170;
-      const strength = 2.6;
-
-      bubblesRef.current = bubblesRef.current.map((b) => {
-        const bx = (b.x / 100) * width;
-        const by = (b.y / 100) * height;
-        const dx = bx - x;
-        const dy = by - y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist > 0.001 && dist < radiusPx) {
-          const t = 1 - dist / radiusPx;
-          const force = t * t * strength;
-          return {
-            ...b,
-            vx: b.vx + ((dx / dist) * force * 100) / width,
-            vy: b.vy + ((dy / dist) * force * 100) / height,
-          };
-        }
-
-        return b;
-      });
-
-      setBubbles([...bubblesRef.current]);
+    const spawnWave = (x: number, y: number) => {
+      wavesRef.current = [
+        {
+          x,
+          y,
+          start: performance.now(),
+          duration: 420,
+          maxRadius: 260,
+          strength: 2.8,
+        },
+        ...wavesRef.current,
+      ].slice(0, 6);
     };
 
     const onLeave = () => {
@@ -156,7 +147,7 @@ const MovingBubbles: React.FC = () => {
       tapRef.current = null;
 
       if (t && !t.ignore && !t.moved) {
-        burst(e.clientX, e.clientY);
+        spawnWave(e.clientX, e.clientY);
       }
 
       onLeave();
@@ -220,13 +211,15 @@ const MovingBubbles: React.FC = () => {
       const dt = Math.min((time - prev) / 16.67, 2);
       lastTimeRef.current = time;
 
-      const friction = 0.985;
+      const friction = 0.994;
       const bounce = 0.98;
       const maxSpeed = 4.5;
+      const idleTargetSpeed = 1.1;
 
       const pointer = pointerRef.current;
       const influenceRadius = 140;
       const repelStrength = 0.9;
+      const waveBand = 70;
 
       const px: BubbleSim[] = bubblesRef.current.map((b) => {
         const xPx = (b.x / 100) * width;
@@ -239,6 +232,32 @@ const MovingBubbles: React.FC = () => {
       for (const b of px) {
         b.vxPx *= Math.pow(friction, dt);
         b.vyPx *= Math.pow(friction, dt);
+
+        const seed = b.id.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+        const t = time * 0.00035;
+        const angle =
+          Math.sin(t + seed * 0.11) * Math.PI +
+          Math.cos(t * 0.7 + seed * 0.17) * Math.PI;
+
+        const activeWaves = wavesRef.current.filter((w) => time - w.start < w.duration);
+        wavesRef.current = activeWaves;
+
+        for (const w of activeWaves) {
+          const progress = Math.max(0, Math.min(1, (time - w.start) / w.duration));
+          const radius = progress * w.maxRadius;
+
+          const dx = b.xPx - w.x;
+          const dy = b.yPx - w.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          const bandDist = Math.abs(dist - radius);
+          if (dist > 0.001 && bandDist < waveBand) {
+            const t = 1 - bandDist / waveBand;
+            const waveForce = t * t * w.strength;
+            b.vxPx += (dx / dist) * waveForce * dt;
+            b.vyPx += (dy / dist) * waveForce * dt;
+          }
+        }
 
         if (pointer.active) {
           const dx = b.xPx - pointer.x;
@@ -253,7 +272,15 @@ const MovingBubbles: React.FC = () => {
           }
         }
 
-        const sp = Math.sqrt(b.vxPx * b.vxPx + b.vyPx * b.vyPx);
+        let sp = Math.sqrt(b.vxPx * b.vxPx + b.vyPx * b.vyPx);
+
+        if (sp < idleTargetSpeed) {
+          const boost = (idleTargetSpeed - sp) * 0.08 * dt;
+          b.vxPx += Math.cos(angle) * boost;
+          b.vyPx += Math.sin(angle) * boost;
+          sp = Math.sqrt(b.vxPx * b.vxPx + b.vyPx * b.vyPx);
+        }
+
         if (sp > maxSpeed) {
           b.vxPx = (b.vxPx / sp) * maxSpeed;
           b.vyPx = (b.vyPx / sp) * maxSpeed;
