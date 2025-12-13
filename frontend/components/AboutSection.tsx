@@ -1,7 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Award, Zap, Users, Target } from "lucide-react";
-import { downloadFile } from "@/lib/actions";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const AboutSection = () => { 
@@ -107,13 +105,6 @@ const AboutSection = () => {
                 ))}
               </div>
             </div>
-
-            <Button 
-              className="btn-hero px-8 py-3 text-lg"
-              onClick={() => downloadFile('/documents/resume.pdf', 'resume.pdf')}
-            >
-              Download Resume
-            </Button>
           </ScrollReveal>
 
           {/* Right Content */}

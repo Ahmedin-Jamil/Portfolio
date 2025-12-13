@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Github, Linkedin, Instagram } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Instagram } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { SiUpwork } from "react-icons/si";
 import heroProfile from "@/assets/Pro.jpg";
-import { scrollToSection, downloadFile } from "@/lib/actions";
+import { scrollToSection } from "@/lib/actions";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const HeroSection = () => {
@@ -36,14 +36,6 @@ const HeroSection = () => {
                 >
                   View My Work
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="px-8 py-3 text-lg group"
-                  onClick={() => downloadFile('/documents/resume.pdf', 'resume.pdf')}
-                >
-                  <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
-                  Download CV
                 </Button>
                 {/* Social Media Icons Inline */}
                 <div className="flex gap-4 ml-0 sm:ml-6 mt-4 sm:mt-0">
