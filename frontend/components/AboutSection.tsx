@@ -68,15 +68,15 @@ const AboutSection = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a fresh graduate passionate about full-stack web development and enterprise systems.
                   I enjoy learning new technologies and building practical applications that solve real problems.
-                  Currently exploring SAP ERP systems and modern web development frameworks.
+                  My journey includes hands-on experience with modern web frameworks, database management,
+                  and exploring enterprise systems like SAP ERP.
                 </p>
                 <p>
                   During my internship at the University of the Cordilleras Office of Student Affairs,
-                  I contributed to UC AIwan+, developing web interfaces and internal tools including mental health modules,
-                  emotion tracking, AI-driven analytics, and a 3D gamified career map. I also built the Baguio Pet Boarding
-                  Platform as a concept project to practice full-stack development with React, TypeScript, and Supabase.
+                  I contributed to UC AIwan+ by developing web interfaces and internal tools including mental health modules,
+                  emotion tracking, AI-driven analytics, and a 3D gamified career map. I also partnered with a local business
+                  to deliver the Baguio Pet Boarding Platform, a complete booking management system with AI chatbot integration.
                 </p>
               </div>
             </div>

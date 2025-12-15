@@ -22,9 +22,9 @@ const HeroSection = () => {
                 <span className="gradient-text">Applications</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-lg">
-                Fresh graduate passionate about full-stack development and enterprise systems.
-                Completed internship at University of the Cordilleras, contributing to UC AIwan+ student support platform.
-                Built the Baguio Pet Boarding Platform as a concept project to showcase my development skills.
+                Passionate about creating scalable web applications and enterprise solutions.
+                Specialized in React, TypeScript, and modern full-stack development with experience
+                in AI integration and cloud-based systems.
               </p>
             </ScrollReveal>
 

@@ -35,8 +35,8 @@ const ServicesSection = () => {
             Services I <span className="gradient-text">Offer</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            As a fresh graduate, I'm eager to contribute to projects and continue learning.
-            Here are the areas where I can add value to your team.
+            I focus on building practical, user-friendly web applications and helping teams 
+            turn ideas into working software.
           </p>
         </ScrollReveal>
 

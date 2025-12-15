@@ -24,7 +24,7 @@ const PortfolioSection = () => {
       id: 1,
       title: "Baguio Pet Boarding",
       category: "Booking Management System",
-      description: "Built a full-stack concept project for a pet boarding management system to practice modern web development. Features include client booking journey, admin workflow, service selection and scheduling, booking/request tracking, and dashboard views. Developed using React, TypeScript, and Supabase to strengthen my full-stack skills.",
+      description: "Developed and delivered a full-stack pet boarding management system in partnership with a local business. Features include client booking journey, admin workflow, service selection and scheduling, booking/request tracking, and dashboard views. Built using javascript, react js, html, css, and express.js backend framework with integrated AI chatbot (Gemini) for customer support.",
       images: [pet1, pet2, pet3, pet4, pet5, pet6],
       tags: ["Admin Dashboard Management", "AI Chatbot", "Real-time slot availability", "Full Stack"]
     },
