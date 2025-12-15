@@ -15,16 +15,16 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <ScrollReveal animation="fade-right" className="space-y-4">
-              <p className="text-muted-foreground text-lg">Full-Stack Developer & SAP Enthusiast</p>
+              <p className="text-muted-foreground text-lg">Fresh Graduate | Full-Stack Developer & SAP Enthusiast</p>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Building <span className="gradient-text">Scalable Systems</span>
+                Building <span className="gradient-text">Modern Web</span>
                 <br />
-                <span className="gradient-text">& Enterprise Solutions</span>
+                <span className="gradient-text">Applications</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-lg">
-                Specialized in developing enterprise systems and full-stack applications.
-                Successfully delivered the Baguio Pet Boarding Platform and contributed to UC AIwan+,
-                featuring mental health modules, AI-driven analytics, and a 3D gamified career map.
+                Fresh graduate passionate about full-stack development and enterprise systems.
+                Completed internship at University of the Cordilleras, contributing to UC AIwan+ student support platform.
+                Built the Baguio Pet Boarding Platform as a concept project to showcase my development skills.
               </p>
             </ScrollReveal>
 

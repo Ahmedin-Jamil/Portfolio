@@ -7,22 +7,22 @@ const ServicesSection = () => {
     {
       icon: <Code2 className="h-8 w-8" />,
       title: "Web Application Development",
-      description: "Building responsive web apps with React, TypeScript, and modern frameworks. From booking systems to admin dashboards."
+      description: "Building responsive web apps with React, TypeScript, and modern frameworks. Knowledgeable in JavaScript, React.js, Express.js, and HTML/CSS."
     },
     {
       icon: <Database className="h-8 w-8" />,
       title: "Backend & Database Design",
-      description: "RESTful APIs, database architecture with Supabase/PostgreSQL, and secure authentication systems."
+      description: "Familiar with MySQL and PostgreSQL database management. Experience with modern cloud-based backend platforms like Supabase."
     },
     {
       icon: <Bot className="h-8 w-8" />,
       title: "AI Chatbot Integration",
-      description: "Integrating conversational AI into web applications for customer support and user engagement."
+      description: "Integrating conversational AI into web applications for customer support and user engagement using modern AI APIs."
     },
     {
       icon: <ClipboardList className="h-8 w-8" />,
-      title: "Requirements & Analysis",
-      description: "Translating business needs into technical specs, user flows, and actionable development plans."
+      title: "UI/UX Design & Analysis",
+      description: "Proficient in Figma for mobile and web UI design. Translating business needs into user-friendly interfaces and development plans."
     }
   ];
 
@@ -35,8 +35,8 @@ const ServicesSection = () => {
             Services I <span className="gradient-text">Offer</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            I focus on building practical, user-friendly web applications and helping teams 
-            turn ideas into working software.
+            As a fresh graduate, I'm eager to contribute to projects and continue learning.
+            Here are the areas where I can add value to your team.
           </p>
         </ScrollReveal>
 

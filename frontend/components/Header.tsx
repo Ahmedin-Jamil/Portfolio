@@ -77,8 +77,8 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <a href="#home" className="text-lg font-bold tracking-tight">
-            <span className="gradient-text">Jamil Alamin</span>
+          <a href="#home" className="flex items-center">
+            <img src="/logo.svg" alt="Jamil Alamin" className="h-10 w-10" />
           </a>
 
           {/* Desktop Navigation */}

@@ -24,7 +24,7 @@ const PortfolioSection = () => {
       id: 1,
       title: "Baguio Pet Boarding",
       category: "Booking Management System",
-      description: "Designed a full-stack concept for a pet boarding management system, focusing on a smooth client booking journey and a clear admin workflow. Includes service selection and scheduling, booking/request tracking, and dashboard-style views to support daily operations and reduce manual coordination.",
+      description: "Built a full-stack concept project for a pet boarding management system to practice modern web development. Features include client booking journey, admin workflow, service selection and scheduling, booking/request tracking, and dashboard views. Developed using React, TypeScript, and Supabase to strengthen my full-stack skills.",
       images: [pet1, pet2, pet3, pet4, pet5, pet6],
       tags: ["Admin Dashboard Management", "AI Chatbot", "Real-time slot availability", "Full Stack"]
     },
@@ -32,7 +32,7 @@ const PortfolioSection = () => {
       id: 2,
       title: "UC AIwan+",
       category: "University Student Support Platform",
-      description: "Contributed to UC AIwan+ by developing key web interfaces and internal tools for the SAS project, including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map feature. Supported workflow improvements across student service operations. Received formal commendation for outstanding contributions to system design and development.",
+      description: "Internship project at University of the Cordilleras Office of Student Affairs. Contributed to UC AIwan+ by developing web interfaces and internal tools, including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map feature. Supported workflow improvements across student service operations. Received formal commendation for outstanding contributions to system design and development.",
       images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
       tags: ["Student Help Desk", "3D Gamification", "AI Cognative Behavioral Therapy ", "AI Analytics for emotion detection", "Full Stack", "Supabase(AWS)"]
     }
@@ -42,15 +42,15 @@ const PortfolioSection = () => {
     <section id="portfolio" className="py-20 px-4">
       <div className="container mx-auto">
         <ScrollReveal animation="fade-up" className="text-center space-y-4 mb-16">
-          <p className="text-muted-foreground text-lg">Creative Concepts</p>
+          <p className="text-muted-foreground text-lg">My Learning Journey</p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            My Prototypes
+            Projects &
             <br />
-            <span className="gradient-text">Concept Designs</span>
+            <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Here are some of my prototype projects and concept designs that showcase my 
-            capabilities in building functional applications and solving complex problems.
+            Here are projects from my internship and personal learning that showcase my 
+            growth as a developer and my ability to build functional web applications.
           </p>
         </ScrollReveal>
 

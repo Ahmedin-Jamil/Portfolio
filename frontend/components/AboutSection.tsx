@@ -5,51 +5,51 @@ import ScrollReveal from "@/components/ScrollReveal";
 const AboutSection = () => { 
   const skills = [
     {
-      name: "AI Prompt Engineering",
-      level: 95,
-      description:
-        "Designing clear, structured prompts and workflows that make AI tools more reliable and useful.",
-    },
-    {
-      name: "System Architecture",
-      level: 90,
-      description:
-        "Planning how front-end, back-end, databases, and AI services fit together into scalable systems.",
-    },
-    {
       name: "Full-Stack Development",
-      level: 85,
+      level: 75,
       description:
         "Building user interfaces with React and connecting them to well-structured APIs and data layers.",
     },
     {
-      name: "Business Analysis",
-      level: 88,
+      name: "Database Management",
+      level: 70,
       description:
-        "Translating business needs into clear requirements, user journeys, and measurable outcomes.",
+        "Familiar with MySQL and PostgreSQL. Experience with Supabase cloud backend platform.",
+    },
+    {
+      name: "SAP ERP Systems",
+      level: 65,
+      description:
+        "Familiar with SAP ERP System Configuration and ABAP basics through training and self-study.",
+    },
+    {
+      name: "UI/UX Design",
+      level: 80,
+      description:
+        "Proficient in Figma for mobile and web UI design. Creating user-friendly interfaces.",
     },
   ];
 
   const achievements = [
     {
       icon: <Award className="h-8 w-8" />,
-      title: "Live Project Success",
-      description: "Baguio Pet Boarding Platform"
+      title: "Internship Success",
+      description: "UC Office of Student Affairs"
     },
     {
       icon: <Zap className="h-8 w-8" />,
-      title: "AI Integration Expert",
-      description: "Specialized in AI-Powered Solutions"
+      title: "Formal Commendation",
+      description: "Outstanding System Contribution"
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "System Architect",
-      description: "End-to-End Solution Design"
+      title: "Team Collaboration",
+      description: "Consensus-Building & Teamwork"
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Business Analyst",
-      description: "Strategic Problem Solving"
+      title: "SAP Training",
+      description: "Cloud & S/4HANA Configuration"
     }
   ];
 
@@ -62,22 +62,21 @@ const AboutSection = () => {
             <div className="space-y-4">
               <p className="text-muted-foreground text-lg">About Me</p>
               <h2 className="text-4xl md:text-5xl font-bold">
-                Passionate About
+                Fresh Graduate
                 <br />
-                <span className="gradient-text">AI-Powered Innovation</span>
+                <span className="gradient-text">Ready to Build</span>
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  As an AI-Powered Solutions Architect, I specialize in creating intelligent
-                  solutions through innovative use of AI technologies. My expertise lies
-                  in transforming complex requirements into efficient, scalable systems
-                  using advanced prompt engineering and system architecture principles.
+                  I'm a fresh graduate passionate about full-stack web development and enterprise systems.
+                  I enjoy learning new technologies and building practical applications that solve real problems.
+                  Currently exploring SAP ERP systems and modern web development frameworks.
                 </p>
                 <p>
-                  I've developed full-stack applications like the Baguio Pet Boarding Platform with an AI chatbot,
-                  and contributed to UC AIwan+, a student support system for the University of the Cordilleras.
-                  My work included mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified
-                  career map game to help students discover their skills and build their career paths.
+                  During my internship at the University of the Cordilleras Office of Student Affairs,
+                  I contributed to UC AIwan+, developing web interfaces and internal tools including mental health modules,
+                  emotion tracking, AI-driven analytics, and a 3D gamified career map. I also built the Baguio Pet Boarding
+                  Platform as a concept project to practice full-stack development with React, TypeScript, and Supabase.
                 </p>
               </div>
             </div>
