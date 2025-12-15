@@ -5,8 +5,11 @@ import { SiUpwork } from "react-icons/si";
 import heroProfile from "@/assets/Pro.jpg";
 import { scrollToSection } from "@/lib/actions";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden">
       <div className="container mx-auto relative z-10">
@@ -15,16 +18,14 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <ScrollReveal animation="fade-right" className="space-y-4">
-              <p className="text-muted-foreground text-lg">Fresh Graduate | Full-Stack Developer & SAP Enthusiast</p>
+              <p className="text-muted-foreground text-lg">{t('hero.subtitle')}</p>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Building <span className="gradient-text">Modern Web</span>
+                {t('hero.title1')} <span className="gradient-text">{t('hero.title2')}</span>
                 <br />
-                <span className="gradient-text">Applications</span>
+                <span className="gradient-text">{t('hero.title3')}</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-lg">
-                Passionate about creating scalable web applications and enterprise solutions.
-                Specialized in React, TypeScript, and modern full-stack development with experience
-                in AI integration and cloud-based systems.
+                {t('hero.description')}
               </p>
             </ScrollReveal>
 
@@ -34,7 +35,7 @@ const HeroSection = () => {
                   className="btn-hero px-8 py-3 text-lg group"
                   onClick={() => scrollToSection('portfolio')}
                 >
-                  View My Work
+                  {t('hero.cta')}
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
                 {/* Social Media Icons Inline */}
@@ -75,12 +76,12 @@ const HeroSection = () => {
 
               {/* Static badge - top right */}
               <div className="absolute top-4 -right-4 bg-secondary text-secondary-foreground backdrop-blur rounded-full px-4 py-2 shadow-lg border border-white/20">
-                <span className="font-medium text-sm">SAP Enthusiast</span>
+                <span className="font-medium text-sm">{t('hero.badge1')}</span>
               </div>
               
               {/* Static badge - bottom left */}
               <div className="absolute bottom-4 -left-4 bg-card backdrop-blur rounded-full px-4 py-2 shadow-lg border border-border">
-                <span className="font-medium text-sm">Full-Stack Developer</span>
+                <span className="font-medium text-sm">{t('hero.badge2')}</span>
               </div>
             </div>
           </ScrollReveal>

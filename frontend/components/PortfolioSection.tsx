@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import pet1 from "@/assets/pet.png";
 import pet2 from "@/assets/pet2.png";
 import pet3 from "@/assets/pet3.png";
@@ -18,21 +19,23 @@ import aiwan8 from "@/assets/aiwan8.png";
 import aiwan9 from "@/assets/aiwan9.png";
 
 const PortfolioSection = () => {
+  const { t } = useLanguage();
+  
   // Generate portfolio project images
   const projects = [
     {
       id: 1,
-      title: "Baguio Pet Boarding",
-      category: "Booking Management System",
-      description: "Developed and delivered a full-stack pet boarding management system in partnership with a local business. Features include client booking journey, admin workflow, service selection and scheduling, booking/request tracking, and dashboard views. Built using javascript, react js, html, css, and express.js backend framework with integrated AI chatbot (Gemini) for customer support.",
+      title: t('portfolio.project1.title'),
+      category: t('portfolio.project1.category'),
+      description: t('portfolio.project1.desc'),
       images: [pet1, pet2, pet3, pet4, pet5, pet6],
       tags: ["Admin Dashboard Management", "AI Chatbot", "Real-time slot availability", "Full Stack"]
     },
     {
       id: 2,
-      title: "UC AIwan+",
-      category: "University Student Support Platform",
-      description: "Internship project at University of the Cordilleras Office of Student Affairs. Contributed to UC AIwan+ by developing web interfaces and internal tools, including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map feature. Supported workflow improvements across student service operations. Received formal commendation for outstanding contributions to system design and development.",
+      title: t('portfolio.project2.title'),
+      category: t('portfolio.project2.category'),
+      description: t('portfolio.project2.desc'),
       images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
       tags: ["Student Help Desk", "3D Gamification", "AI Cognative Behavioral Therapy ", "AI Analytics for emotion detection", "Full Stack", "Supabase(AWS)"]
     }
@@ -42,15 +45,14 @@ const PortfolioSection = () => {
     <section id="portfolio" className="py-20 px-4">
       <div className="container mx-auto">
         <ScrollReveal animation="fade-up" className="text-center space-y-4 mb-16">
-          <p className="text-muted-foreground text-lg">My Learning Journey</p>
+          <p className="text-muted-foreground text-lg">{t('portfolio.label')}</p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Projects &
+            {t('portfolio.title1')}
             <br />
-            <span className="gradient-text">Experience</span>
+            <span className="gradient-text">{t('portfolio.title2')}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Here are projects from my internship and personal learning that showcase my 
-            growth as a developer and my ability to build functional web applications.
+            {t('portfolio.description')}
           </p>
         </ScrollReveal>
 

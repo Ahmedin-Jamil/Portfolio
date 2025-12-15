@@ -1,25 +1,27 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { handleContact } from '@/lib/actions';
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
 
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6" />,
-      label: "Phone Number",
+      label: t('contact.phone'),
       value: "+63 9158091139",
       action: () => handleContact('phone', '+63 9158091139')
     },
     {
       icon: <Mail className="h-6 w-6" />,
-      label: "Email Address", 
+      label: t('contact.email'), 
       value: "jamil.al.amin1100@gmail.com",
       action: () => handleContact('email', 'jamil.al.amin1100@gmail.com')
     },
     {
       icon: <MapPin className="h-6 w-6" />,
-      label: "Location",
+      label: t('contact.location'),
       value: "Baguio City, Benguet, Philippines",
       action: "#"
     }
@@ -29,15 +31,14 @@ const ContactSection = () => {
     <section id="contact" className="py-20 px-4">
       <div className="container mx-auto">
         <ScrollReveal animation="fade-up" className="text-center space-y-4 mb-16">
-          <p className="text-muted-foreground text-lg">Get In Touch</p>
+          <p className="text-muted-foreground text-lg">{t('contact.label')}</p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Let's Discuss Your
+            {t('contact.title1')}
             <br />
-            <span className="gradient-text">Project</span>
+            <span className="gradient-text">{t('contact.title2')}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to bring your vision to life? Let's collaborate and create something amazing together. 
-            You can reach me directly through the contact details below.
+            {t('contact.description')}
           </p>
         </ScrollReveal>
 
@@ -46,10 +47,9 @@ const ContactSection = () => {
           <ScrollReveal animation="fade-up" delay={200} className="space-y-8 max-w-xl mx-auto">
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold">Contact Information</h3>
+              <h3 className="text-2xl font-semibold">{t('contact.info.title')}</h3>
               <p className="text-muted-foreground">
-                Feel free to reach out through any of these channels. I'm always excited 
-                to discuss new opportunities and creative challenges.
+                {t('contact.info.description')}
               </p>
             </div>
 
@@ -72,19 +72,19 @@ const ContactSection = () => {
             </div>
 
             <div className="bg-gradient-card rounded-xl p-6 space-y-4">
-              <h4 className="text-xl font-semibold">Project Timeline</h4>
+              <h4 className="text-xl font-semibold">{t('contact.timeline.title')}</h4>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Response Time:</span>
-                  <span className="font-medium">Within 24 hours</span>
+                  <span className="text-muted-foreground">{t('contact.timeline.response')}</span>
+                  <span className="font-medium">{t('contact.timeline.responseValue')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Project Start:</span>
-                  <span className="font-medium">1-2 weeks</span>
+                  <span className="text-muted-foreground">{t('contact.timeline.start')}</span>
+                  <span className="font-medium">{t('contact.timeline.startValue')}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Avg. Completion:</span>
-                  <span className="font-medium">2-6 weeks</span>
+                  <span className="text-muted-foreground">{t('contact.timeline.completion')}</span>
+                  <span className="font-medium">{t('contact.timeline.completionValue')}</span>
                 </div>
               </div>
             </div>

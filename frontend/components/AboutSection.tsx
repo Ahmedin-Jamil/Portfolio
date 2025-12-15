@@ -1,55 +1,54 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Zap, Users, Target } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => { 
+  const { t } = useLanguage();
+  
   const skills = [
     {
-      name: "Full-Stack Development",
+      name: t('about.skill1.name'),
       level: 75,
-      description:
-        "Building user interfaces with React and connecting them to well-structured APIs and data layers.",
+      description: t('about.skill1.desc'),
     },
     {
-      name: "Database Management",
+      name: t('about.skill2.name'),
       level: 70,
-      description:
-        "Familiar with MySQL and PostgreSQL. Experience with Supabase cloud backend platform.",
+      description: t('about.skill2.desc'),
     },
     {
-      name: "SAP ERP Systems",
+      name: t('about.skill3.name'),
       level: 65,
-      description:
-        "Familiar with SAP ERP System Configuration and ABAP basics through training and self-study.",
+      description: t('about.skill3.desc'),
     },
     {
-      name: "UI/UX Design",
+      name: t('about.skill4.name'),
       level: 80,
-      description:
-        "Proficient in Figma for mobile and web UI design. Creating user-friendly interfaces.",
+      description: t('about.skill4.desc'),
     },
   ];
 
   const achievements = [
     {
       icon: <Award className="h-8 w-8" />,
-      title: "Internship Success",
-      description: "UC Office of Student Affairs"
+      title: t('about.achievement1.title'),
+      description: t('about.achievement1.desc')
     },
     {
       icon: <Zap className="h-8 w-8" />,
-      title: "Formal Commendation",
-      description: "Outstanding System Contribution"
+      title: t('about.achievement2.title'),
+      description: t('about.achievement2.desc')
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Team Collaboration",
-      description: "Consensus-Building & Teamwork"
+      title: t('about.achievement3.title'),
+      description: t('about.achievement3.desc')
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "SAP Training",
-      description: "Cloud & S/4HANA Configuration"
+      title: t('about.achievement4.title'),
+      description: t('about.achievement4.desc')
     }
   ];
 
@@ -60,30 +59,25 @@ const AboutSection = () => {
           {/* Left Content */}
           <ScrollReveal animation="fade-right" className="space-y-8">
             <div className="space-y-4">
-              <p className="text-muted-foreground text-lg">About Me</p>
+              <p className="text-muted-foreground text-lg">{t('about.label')}</p>
               <h2 className="text-4xl md:text-5xl font-bold">
-                Fresh Graduate
+                {t('about.title1')}
                 <br />
-                <span className="gradient-text">Ready to Build</span>
+                <span className="gradient-text">{t('about.title2')}</span>
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I enjoy learning new technologies and building practical applications that solve real problems.
-                  My journey includes hands-on experience with modern web frameworks, database management,
-                  and exploring enterprise systems like SAP ERP.
+                  {t('about.description1')}
                 </p>
                 <p>
-                  During my internship at the University of the Cordilleras Office of Student Affairs,
-                  I contributed to UC AIwan+ by developing web interfaces and internal tools including mental health modules,
-                  emotion tracking, AI-driven analytics, and a 3D gamified career map. I also partnered with a local business
-                  to deliver the Baguio Pet Boarding Platform, a complete booking management system with AI chatbot integration.
+                  {t('about.description2')}
                 </p>
               </div>
             </div>
 
             {/* Skills */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold">My Skills</h3>
+              <h3 className="text-xl font-semibold">{t('about.skills.title')}</h3>
               <div className="space-y-4">
                 {skills.map((skill) => (
                   <div key={skill.name} className="space-y-2">

@@ -1,17 +1,19 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const headerRef = useRef<HTMLElement | null>(null);
+  const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Contact", href: "#contact" },
+    { label: t('nav.home'), href: "#home" },
+    { label: t('nav.about'), href: "#about" },
+    { label: t('nav.services'), href: "#services" },
+    { label: t('nav.portfolio'), href: "#portfolio" },
+    { label: t('nav.contact'), href: "#contact" },
   ];
 
   useEffect(() => {
@@ -81,6 +83,32 @@ const Header = () => {
             <img src="/logo.svg" alt="Jamil Alamin" className="h-16 w-16" />
           </a>
 
+          {/* Language Switcher - Desktop */}
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1.5 shadow-sm backdrop-blur">
+            <Globe className="h-4 w-4 text-muted-foreground" />
+            <button
+              onClick={() => setLanguage('en')}
+              className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+                language === 'en'
+                  ? 'text-foreground bg-muted/60'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              English
+            </button>
+            <span className="text-muted-foreground/40">|</span>
+            <button
+              onClick={() => setLanguage('ar')}
+              className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+                language === 'ar'
+                  ? 'text-foreground bg-muted/60'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              عربي
+            </button>
+          </div>
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-1 justify-center">
             <div className="rounded-full border border-border/60 bg-background/60 px-2 py-1 shadow-sm backdrop-blur">
@@ -118,6 +146,31 @@ const Header = () => {
               </ul>
             </div>
           </nav>
+
+          {/* Language Switcher - Mobile */}
+          <div className="md:hidden flex items-center gap-2 rounded-full border border-border/60 bg-background/60 px-2 py-1 shadow-sm backdrop-blur">
+            <button
+              onClick={() => setLanguage('en')}
+              className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+                language === 'en'
+                  ? 'text-foreground bg-muted/60'
+                  : 'text-muted-foreground'
+              }`}
+            >
+              EN
+            </button>
+            <span className="text-muted-foreground/40 text-xs">|</span>
+            <button
+              onClick={() => setLanguage('ar')}
+              className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+                language === 'ar'
+                  ? 'text-foreground bg-muted/60'
+                  : 'text-muted-foreground'
+              }`}
+            >
+              عربي
+            </button>
+          </div>
 
           {/* Mobile Menu Button */}
           <button

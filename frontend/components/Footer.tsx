@@ -3,8 +3,11 @@ import { Github, Linkedin, Twitter, Instagram, Heart} from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { SiUpwork } from "react-icons/si";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   const socialLinks = [
     { icon: <Github className="h-5 w-5" />, href: "https://github.com/Ahmedin-Jamil", label: "GitHub" },
     { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/ahmedin-jamil-alamin-omer-597080313", label: "LinkedIn" },
@@ -14,19 +17,19 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Contact", href: "#contact" },
+    { label: t('nav.home'), href: "#home" },
+    { label: t('nav.about'), href: "#about" },
+    { label: t('nav.services'), href: "#services" },
+    { label: t('nav.portfolio'), href: "#portfolio" },
+    { label: t('nav.contact'), href: "#contact" },
   ];
 
   const services = [
-    "Brand Design",
-    "Web Design", 
-    "Mobile App Design",
-    "UI/UX Design",
-    "Digital Strategy",
+    t('services.brandDesign'),
+    t('services.webDesign'), 
+    t('services.mobileAppDesign'),
+    t('services.uiuxDesign'),
+    t('services.digitalStrategy'),
   ];
 
   return (
@@ -39,7 +42,7 @@ const Footer = () => {
               Portfolio
             </div>
             <p className="text-muted-foreground">
-              Creating beautiful digital experiences that engage users and drive business results.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (

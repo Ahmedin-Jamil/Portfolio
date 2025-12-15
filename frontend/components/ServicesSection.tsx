@@ -1,28 +1,31 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Database, Bot, ClipboardList } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: <Code2 className="h-8 w-8" />,
-      title: "Web Application Development",
-      description: "Building responsive web apps with React, TypeScript, and modern frameworks. Knowledgeable in JavaScript, React.js, Express.js, and HTML/CSS."
+      title: t('services.service1.title'),
+      description: t('services.service1.desc')
     },
     {
       icon: <Database className="h-8 w-8" />,
-      title: "Backend & Database Design",
-      description: "Familiar with MySQL and PostgreSQL database management. Experience with modern cloud-based backend platforms like Supabase."
+      title: t('services.service2.title'),
+      description: t('services.service2.desc')
     },
     {
       icon: <Bot className="h-8 w-8" />,
-      title: "AI Chatbot Integration",
-      description: "Integrating conversational AI into web applications for customer support and user engagement using modern AI APIs."
+      title: t('services.service3.title'),
+      description: t('services.service3.desc')
     },
     {
       icon: <ClipboardList className="h-8 w-8" />,
-      title: "UI/UX Design & Analysis",
-      description: "Proficient in Figma for mobile and web UI design. Translating business needs into user-friendly interfaces and development plans."
+      title: t('services.service4.title'),
+      description: t('services.service4.desc')
     }
   ];
 
@@ -30,13 +33,12 @@ const ServicesSection = () => {
     <section id="services" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto">
         <ScrollReveal animation="fade-up" className="text-center space-y-4 mb-16">
-          <p className="text-muted-foreground text-lg">What I Can Help With</p>
+          <p className="text-muted-foreground text-lg">{t('services.label')}</p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Services I <span className="gradient-text">Offer</span>
+            {t('services.title1')} <span className="gradient-text">{t('services.title2')}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            I focus on building practical, user-friendly web applications and helping teams 
-            turn ideas into working software.
+            {t('services.description')}
           </p>
         </ScrollReveal>
 
