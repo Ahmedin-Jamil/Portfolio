@@ -78,7 +78,7 @@ const Header = () => {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <a href="#home" className="flex items-center">
-            <img src="/logo.svg" alt="Jamil Alamin" className="h-10 w-10" />
+            <img src="/logo.svg" alt="Jamil Alamin" className="h-16 w-16" />
           </a>
 
           {/* Desktop Navigation */}
