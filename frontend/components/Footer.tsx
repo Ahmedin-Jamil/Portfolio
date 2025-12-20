@@ -38,19 +38,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
           <div className="space-y-6">
-            <div className="text-2xl font-bold gradient-text">
-              Portfolio
-            </div>
-            <p className="text-muted-foreground">
-              {t('footer.description')}
-            </p>
+            <a href="#home" className="inline-flex items-center">
+              <img src="/logo.svg" alt="Jamil Alamin logo" className="h-14 w-14" />
+            </a>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <Button
                   key={link.label}
                   variant="ghost"
                   size="sm"
-                  className="w-10 h-10 p-0 hover:bg-primary hover:text-primary-foreground"
+                  className="w-5 h-1 p-0 hover:bg-primary hover:text-primary-foreground"
                   asChild
                 >
                   <a href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer">
