@@ -73,16 +73,6 @@ const HeroSection = () => {
                   className="w-full h-full object-cover object-[right_50%]"
                 />
               </div>
-
-              {/* Static badge - top right */}
-              <div className="absolute top-4 -right-4 bg-secondary text-secondary-foreground backdrop-blur rounded-full px-4 py-2 shadow-lg border border-white/20">
-                <span className="font-medium text-sm">{t('hero.badge1')}</span>
-              </div>
-              
-              {/* Static badge - bottom left */}
-              <div className="absolute bottom-4 -left-4 bg-card backdrop-blur rounded-full px-4 py-2 shadow-lg border border-border">
-                <span className="font-medium text-sm">{t('hero.badge2')}</span>
-              </div>
             </div>
           </ScrollReveal>
         </div>

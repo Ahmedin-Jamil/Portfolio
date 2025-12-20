@@ -29,7 +29,7 @@ const PortfolioSection = () => {
       category: t('portfolio.project1.category'),
       description: t('portfolio.project1.desc'),
       images: [pet1, pet2, pet3, pet4, pet5, pet6],
-      tags: ["Admin Dashboard Management", "AI Chatbot", "Real-time slot availability", "Full Stack"]
+      tags: ["Admin Dashboard Management", "Real-time slot availability", "Full Stack"]
     },
     {
       id: 2,

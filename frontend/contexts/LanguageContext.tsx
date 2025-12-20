@@ -55,14 +55,13 @@ const translationsEn: Record<string, string> = {
   'nav.contact': 'Contact',
 
   // Hero Section
-  'hero.subtitle': 'Full-Stack Developer & SAP Enthusiast',
+  'hero.subtitle': 'Backend Developer & ERP SAP End-to-End',
   'hero.title1': 'Building',
   'hero.title2': 'Modern Web',
   'hero.title3': 'Applications',
   'hero.description': 'Passionate about creating scalable web applications and enterprise solutions. Specialized in React, TypeScript, and modern full-stack development with experience in AI integration and cloud-based systems.',
   'hero.cta': 'View My Work',
-  'hero.badge1': 'SAP Enthusiast',
-  'hero.badge2': 'Full-Stack Developer',
+
 
   // About Section
   'about.label': 'About Me',
@@ -148,7 +147,7 @@ const translationsAr: Record<string, string> = {
   'nav.contact': 'التواصل',
 
   // Hero Section
-  'hero.subtitle': 'مطور ويب متكامل ومتحمس لأنظمة SAP',
+  'hero.subtitle': 'مطور Full-stack ومتخصص في أنظمة SAP ERP متكاملة',
   'hero.title1': 'بناء',
   'hero.title2': 'تطبيقات ويب',
   'hero.title3': 'حديثة',
