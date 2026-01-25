@@ -22,7 +22,7 @@ const ContactSection = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       label: t('contact.location'),
-      value: "Baguio City, Benguet, Philippines",
+      value: "La Trinidad, Benguet, Philippines",
       action: "#"
     }
   ];

@@ -55,11 +55,11 @@ const translationsEn: Record<string, string> = {
   'nav.contact': 'Contact',
 
   // Hero Section
-  'hero.subtitle': 'Backend Developer & ERP SAP End-to-End',
+  'hero.subtitle': 'Developer & ERP SAP End-to-End',
   'hero.title1': 'Building',
   'hero.title2': 'Modern Web',
   'hero.title3': 'Applications',
-  'hero.description': 'Passionate about creating scalable web applications and enterprise solutions. Specialized in React, TypeScript, and modern full-stack development with experience in AI integration and cloud-based systems.',
+  'hero.description': 'Passionate about creating scalable web applications and enterprise solutions. Experienced in React, TypeScript, and Node.js. Also I have experienced AI integration and cloud-based systems.',
   'hero.cta': 'View My Work',
 
 
@@ -68,7 +68,7 @@ const translationsEn: Record<string, string> = {
   'about.title1': 'Fresh Graduate',
   'about.title2': 'Ready to Build',
   'about.description1': 'I enjoy learning new technologies and building practical applications that solve real problems. My journey includes hands-on experience with modern web frameworks, database management, and exploring enterprise systems like SAP ERP.',
-  'about.description2': 'During my internship at the University of the Cordilleras Office of Student Affairs, I contributed to UC AIwan+ by developing web interfaces and internal tools including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map. I also partnered with a local business to deliver the Baguio Pet Boarding Platform, a complete booking management system.',
+  'about.description2': 'During my internship at the University of the Cordilleras Office of Student Affairs, I contributed to develop a web interfaces and internal tools including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map. I also partnered with a local business to deliver the Baguio Pet Boarding Platform, a complete booking management system.',
   'about.skills.title': 'My Skills',
   'about.skill1.name': 'Full-Stack Development',
   'about.skill1.desc': 'Building user interfaces with React and connecting them to well-structured APIs and data layers.',

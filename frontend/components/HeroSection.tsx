@@ -62,8 +62,6 @@ const HeroSection = () => {
           {/* Right Content - Profile Image */}
           <ScrollReveal animation="scale" delay={200} className="relative flex justify-center">
             <div className="relative">
-              {/* Circular gradient ring behind image */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary p-1 blur-sm opacity-60"></div>
               
               {/* Main circular image container */}
               <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
