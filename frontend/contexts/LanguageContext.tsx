@@ -112,6 +112,9 @@ const translationsEn: Record<string, string> = {
   'portfolio.project2.title': 'UC AIwan+',
   'portfolio.project2.category': 'University Student Support Platform',
   'portfolio.project2.desc': 'Internship project at University of the Cordilleras Office of Student Affairs. Contributed to UC AIwan+ by developing web interfaces and internal tools, including mental health modules, emotion tracking, AI-driven analytics, and a 3D gamified career map feature. Supported workflow improvements across student service operations. Received formal commendation for outstanding contributions to system design and development.',
+  'portfolio.project3.title': 'QuickConvert',
+  'portfolio.project3.category': 'Financial ETL Connector',
+  'portfolio.project3.desc': 'QuickConvert is a financial ETL connector that converts bank statement PDFs into audit-ready Excel ledgers with 100% mathematical accuracy. Built with a Python Flask backend and a vanilla JavaScript frontend, it features real-time NDJSON streaming, deterministic parsing, Supabase authentication with role-based quotas, and Lemon Squeezy subscriptions—all wrapped in a clean, professional glassmorphism UI.',
 
   // Contact Section
   'contact.label': 'Get In Touch',

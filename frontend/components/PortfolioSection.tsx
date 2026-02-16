@@ -2,13 +2,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import ProjectGallery from "@/components/ProjectGallery";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
-import pet1 from "@/assets/pet.png";
-import pet2 from "@/assets/pet2.png";
-import pet3 from "@/assets/pet3.png";
-import pet4 from "@/assets/pet4.png";
-import pet5 from "@/assets/pet5.png";
-import pet6 from "@/assets/pet6.png";
-import aiwan1 from "@/assets/aiwan.png";
+import pet1 from "@/assets/PBP.jpg";
+import pet2 from "@/assets/pet.png";
+import pet3 from "@/assets/pet2.png";
+import pet4 from "@/assets/pet3.png";
+import pet5 from "@/assets/pet4.png";
+import pet6 from "@/assets/pet5.png";
+import pet7 from "@/assets/pet6.png";
+import aiwan1 from "@/assets/AIwan1.png";
 import aiwan2 from "@/assets/aiwan2.png";
 import aiwan3 from "@/assets/aiwan3.png";
 import aiwan4 from "@/assets/aiwan4.png";
@@ -17,18 +18,22 @@ import aiwan6 from "@/assets/aiwan6.png";
 import aiwan7 from "@/assets/aiwan7.png";
 import aiwan8 from "@/assets/aiwan8.png";
 import aiwan9 from "@/assets/aiwan9.png";
+import quick1 from "@/assets/QC Logo Green GradientWB.png";
+import quick2 from "@/assets/quickconvert1.png";
+import quick3 from "@/assets/quickconvert2.png";
+import quick4 from "@/assets/quickconvert3.png";
 
 const PortfolioSection = () => {
   const { t } = useLanguage();
   
-  // Generate portfolio project images
-  const projects = [
+  // Undergraduate Projects
+  const undergraduateProjects = [
     {
       id: 1,
       title: t('portfolio.project1.title'),
       category: t('portfolio.project1.category'),
       description: t('portfolio.project1.desc'),
-      images: [pet1, pet2, pet3, pet4, pet5, pet6],
+      images: [pet1, pet2, pet3, pet4, pet5, pet6, pet7],
       tags: ["Admin Dashboard Management", "Real-time slot availability", "Full Stack"]
     },
     {
@@ -38,6 +43,27 @@ const PortfolioSection = () => {
       description: t('portfolio.project2.desc'),
       images: [aiwan1, aiwan2, aiwan3, aiwan4, aiwan5, aiwan6, aiwan7, aiwan8, aiwan9],
       tags: ["Student Help Desk", "3D Gamification", "AI Cognative Behavioral Therapy ", "AI Analytics for emotion detection", "Full Stack", "Supabase(AWS)"]
+    }
+  ];
+
+  // Personal Projects
+  const personalProjects = [
+    {
+      id: 3,
+      title: t('portfolio.project3.title'),
+      category: t('portfolio.project3.category'),
+      description: t('portfolio.project3.desc'),
+      images: [quick1, quick2, quick3, quick4],
+      tags: [
+        "Financial ETL",
+        "Deterministic Parsing (Regex & Coordinates)",
+        "Python Flask on Render",
+        "Vite + Vanilla JavaScript",
+        "Supabase Auth & Quotas",
+        "Lemon Squeezy Subscriptions",
+        "Real-time NDJSON Streaming",
+        "Professional Glassmorphism UI"
+      ]
     }
   ];
 
@@ -56,40 +82,83 @@ const PortfolioSection = () => {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
-          {projects.map((project, index) => (
-            <ScrollReveal
-              key={project.id}
-              animation="fade-up"
-              delay={index * 150}
-              className="h-full"
-            >
-              <Card className="card-hover overflow-hidden bg-gradient-card h-full">
-                <div className="relative group">
-                  <ProjectGallery images={project.images} alt={project.title} heightClassName="h-64" />
-                </div>
-                <CardContent className="p-6 space-y-4">
-                  <div className="space-y-2">
-                    <p className="text-sm text-muted-foreground">{project.category}</p>
-                    <h3 className="text-xl font-semibold">{project.title}</h3>
-                    <p className="text-muted-foreground">{project.description}</p>
+        {/* Undergraduate Projects */}
+        <ScrollReveal animation="fade-up" className="mb-12">
+          <h3 className="text-2xl font-semibold text-center mb-8">Undergraduate Projects</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {undergraduateProjects.map((project, index) => (
+              <ScrollReveal
+                key={project.id}
+                animation="fade-up"
+                delay={index * 150}
+                className="h-full"
+              >
+                <Card className="card-hover overflow-hidden bg-gradient-card h-full">
+                  <div className="relative group">
+                    <ProjectGallery images={project.images} alt={project.title} heightClassName="h-64" />
                   </div>
+                  <CardContent className="p-6 space-y-4">
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">{project.category}</p>
+                      <h3 className="text-xl font-semibold">{project.title}</h3>
+                      <p className="text-muted-foreground">{project.description}</p>
+                    </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <span 
-                        key={tag}
-                        className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span 
+                          key={tag}
+                          className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Personal Projects */}
+        <ScrollReveal animation="fade-up" className="mb-12">
+          <h3 className="text-2xl font-semibold text-center mb-8">Personal Projects</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {personalProjects.map((project, index) => (
+              <ScrollReveal
+                key={project.id}
+                animation="fade-up"
+                delay={index * 150}
+                className="h-full"
+              >
+                <Card className="card-hover overflow-hidden bg-gradient-card h-full">
+                  <div className="relative group">
+                    <ProjectGallery images={project.images} alt={project.title} heightClassName="h-64" />
                   </div>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-          ))}
-        </div>
+                  <CardContent className="p-6 space-y-4">
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">{project.category}</p>
+                      <h3 className="text-xl font-semibold">{project.title}</h3>
+                      <p className="text-muted-foreground">{project.description}</p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span 
+                          key={tag}
+                          className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
